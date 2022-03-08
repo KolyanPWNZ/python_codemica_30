@@ -1,5 +1,5 @@
 from SiteUsers import User
-from ItemsEnvironment import ItemList
+from CatalogEnvironment import ItemList
 
 class Order:
     __id = 0  # static field
@@ -20,10 +20,9 @@ class Order:
 
     @user.setter
     def user(self, user):
-        if type(user) == User:
-            self.__user = user
-        else:
-            assert "Объект не относится к классу User!"
+        assert type(user) == User, "Объект не относится к классу User!"
+        self.__user = user
+
     # -----------------------------------------------------------
 
 
@@ -43,10 +42,8 @@ class OrderDetails:
 
     @order.setter
     def order(self, order):
-        if type(order) == Order:
-            self.__order = order
-        else:
-            assert "Объект должен относится к классу Order"
+        assert type(order) == Order, "Объект должен относится к классу Order"
+        self.__order = order
 
     @property
     def item_list(self):
@@ -54,10 +51,9 @@ class OrderDetails:
 
     @item_list.setter
     def item_list(self, item_list):
-        if type(item_list) == ItemList:
-            self.__item_list = item_list
-        else:
-            assert "Объект должен относится к классу ItemList"
+        assert type(item_list) == ItemList, "Объект должен относится к классу ItemList"
+        self.__item_list = item_list
+
     # -----------------------------------------------------------
 
 

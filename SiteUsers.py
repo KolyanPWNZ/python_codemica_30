@@ -20,10 +20,8 @@ class User:
 
     @name.setter
     def name(self, name):
-        if type(name) == str:
-            self.__name = name
-        else:
-            assert "Имя должно быть строкой!"
+        assert type(name) == str, "Имя должно быть строкой!"
+        self.__name = name
 
     @property
     def surname(self):
@@ -31,14 +29,13 @@ class User:
 
     @surname.setter
     def surname(self, surname):
-        if type(surname) == str:
-            self.__surname = surname
-        else:
-            assert "Фамилия должна быть строкой!"
+        assert type(surname) == str, "Фамилия должна быть строкой!"
+        self.__surname = surname
+
     # -----------------------------------------------------------
 
 
 class Administrator(User):
 
     def __init__(self, name, surname):
-        super.__init__(name, surname)
+        super(Administrator, self).__init__(name, surname)

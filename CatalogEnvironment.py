@@ -58,10 +58,9 @@ class Catalog:
 
     @item_list.setter
     def item_list(self, item_list):
-        if type(item_list) == ItemList:
-            self.__item_list = item_list
-        else:
-            assert "Список товаров должен относится к классу ItemList"
+        assert type(item_list) == ItemList, "Список товаров должен относится к классу ItemList"
+        self.__item_list = item_list
+
     # -----------------------------------------------------------
 
     # добавление подкаталога

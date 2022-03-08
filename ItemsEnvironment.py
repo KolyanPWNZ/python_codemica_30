@@ -22,10 +22,8 @@ class Item:
 
     @title.setter
     def title(self, title):
-        if type(title) == str:
-            self.__title = title
-        else:
-            assert "Название товара должно быть строкой"
+        assert type(title) == str, "Название товара должно быть строкой"
+        self.__title = title
 
     @property
     def description(self):
@@ -33,10 +31,8 @@ class Item:
 
     @description.setter
     def description(self, description):
-        if type(description) == str:
-            self.__description = description
-        else:
-            assert "Описание товара должно быть строкой"
+        assert type(description) == str, "Описание товара должно быть строкой"
+        self.__description = description
 
     @property
     def price(self):
@@ -44,10 +40,9 @@ class Item:
 
     @price.setter
     def price(self, price):
-        if type(price) == int and price > 0:
-            self.__price = price
-        else:
-            assert "Цена товара должно быть целым числом больше нуля"
+        assert type(price) == int and price > 0, "Цена товара должно быть целым числом больше нуля"
+        self.__price = price
+
     # -----------------------------------------------------------
 
 
