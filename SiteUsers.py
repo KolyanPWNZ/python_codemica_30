@@ -9,6 +9,7 @@ class User:
         self.__id = User.__id
         User.__id += 1
 
+    # -----------------------------------------------------------
     @property
     def id(self):
         return self.__id
@@ -34,7 +35,7 @@ class User:
             self.__surname = surname
         else:
             assert "Фамилия должна быть строкой!"
-
+    # -----------------------------------------------------------
 
 
 class Administrator(User):

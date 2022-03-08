@@ -9,6 +9,7 @@ class Order:
         self.__id = Order.__id
         Order.__id += 1
 
+    # -----------------------------------------------------------
     @property
     def id(self):
         return self.__id
@@ -23,6 +24,7 @@ class Order:
             self.__user = user
         else:
             assert "Объект не относится к классу User!"
+    # -----------------------------------------------------------
 
 
 class OrderDetails:
@@ -34,6 +36,7 @@ class OrderDetails:
         self.__id = User.__id
         User.__id += 1
 
+    # -----------------------------------------------------------
     @property
     def order(self):
         return self.__order
@@ -55,7 +58,7 @@ class OrderDetails:
             self.__item_list = item_list
         else:
             assert "Объект должен относится к классу ItemList"
-
+    # -----------------------------------------------------------
 
 
 
