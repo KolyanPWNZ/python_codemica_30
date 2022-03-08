@@ -1,3 +1,6 @@
+# UML схема - https://drive.google.com/file/d/1ussGiYgc7ZGx1_4iUDrzSH1lP94k6a1O/view?usp=sharing
+
+
 from SiteUsers import User, Administrator
 from OrderEnvironment import Order, OrderDetails
 from ItemsEnvironment import Item

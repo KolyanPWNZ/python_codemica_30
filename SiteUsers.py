@@ -1,5 +1,6 @@
-# классы пользователей сайта магазина
+from OrderEnvironment import Order, OrderDetails
 
+# классы пользователей сайта магазина
 class User:
     __id = 0  # static field
 
@@ -43,8 +44,17 @@ class Administrator(User):
         self.__id = Administrator.__id
         Administrator.__id += 1
 
+    # ----------------------------------------------------------
     @property
     def id(self):
         return self.__id
+    # ----------------------------------------------------------
+
+    # отмена заказа
+    def cancel_order(self, order):
+        assert type(order) == Order, "Некорректный тип заказа"
+        order.status = 4
+
+
 
 

@@ -3,13 +3,34 @@ from CatalogEnvironment import ItemList
 
 class Order:
     __id = 0  # static field
+    __status_dict = {
+        0: "Заказ обрабатывается",
+        1: "Заказ в пути",
+        2: "Заказ прибыл",
+        3: "Заказ завершен",
+        4: "Заказ отменен"
+    }
 
     def __init__(self, user):
         self.user = user
         self.__id = Order.__id
         Order.__id += 1
+        self.status = 0 # статус заказа
 
     # -----------------------------------------------------------
+    @property
+    def status(self):
+        return self.__status
+
+    @status.setter
+    def status(self, status):
+        # установка статуса заказа
+        assert type(status) == int, "Статус должен быть целым числом"
+        assert status in Order.__status_dict, "Такого статуса нет"
+        self.__status = Order.__status_dict[status]
+
+
+
     @property
     def id(self):
         return self.__id
@@ -22,6 +43,8 @@ class Order:
     def user(self, user):
         assert type(user) == User, "Объект не относится к классу User!"
         self.__user = user
+
+
 
     # -----------------------------------------------------------
 
