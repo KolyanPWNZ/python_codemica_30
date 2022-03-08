@@ -36,6 +36,15 @@ class User:
 
 
 class Administrator(User):
+    __id = 0  # static field
 
     def __init__(self, name, surname):
         super(Administrator, self).__init__(name, surname)
+        self.__id = Administrator.__id
+        Administrator.__id += 1
+
+    @property
+    def id(self):
+        return self.__id
+
+
