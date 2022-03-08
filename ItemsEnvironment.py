@@ -3,11 +3,10 @@
 class Item:
     __id = 0  # static field
 
-    def __init__(self, title, description, price, quantity):
+    def __init__(self, title, description, price):
         self.title = title
         self.description = description
         self.price = price
-        self.quantity = quantity
         self.__id = Item.__id
         Item.__id += 1
 
@@ -40,7 +39,7 @@ class Item:
 
     @price.setter
     def price(self, price):
-        assert type(price) == int and price > 0, "Цена товара должно быть целым числом больше нуля"
+        assert type(price) == int and price > 0, "Цена товара должна быть целым числом больше нуля"
         self.__price = price
 
     # -----------------------------------------------------------
