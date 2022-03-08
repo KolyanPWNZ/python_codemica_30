@@ -9,6 +9,7 @@ class ItemList:
         ItemList.__id += 1
         self.__items = list() # список товаров и id каталогов, которым они соответствуют
 
+    # -----------------------------------------------------------
     @property
     def id(self):
         return self.__id
@@ -25,6 +26,8 @@ class ItemList:
 
         # добавление товара в список:
         self.__items.append([item, catalog])
+
+    # -----------------------------------------------------------
 
     # добавление списка товаров в ItemList и соответствующего каталога
     def add_list_of_item(self, item_list, catalog):

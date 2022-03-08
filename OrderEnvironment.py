@@ -32,10 +32,14 @@ class OrderDetails:
     def __init__(self, order, item_list):
         self.order = order
         self.item_list = item_list
-        self.__id = User.__id
-        User.__id += 1
+        self.__id = OrderDetails.__id
+        OrderDetails.__id += 1
 
     # -----------------------------------------------------------
+    @property
+    def id(self):
+        return self.__id
+
     @property
     def order(self):
         return self.__order
