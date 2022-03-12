@@ -1,5 +1,11 @@
 from OrderEnvironment import Order, OrderDetails
 
+# assert обычно применяется для отладки, но не для взаимодействия с пользователем
+# лучше продумать альтернативный вариант проверок и делать обработчики неверных данных
+# например можно, в случпе неверных данных блокировать покупку товара, а в качестве значения
+# поля ставить None - на начальном этапе, и/или не менять значение поля до получения корректных данных
+# в случае неверных данных следует уведомлять пользователя
+
 # классы пользователей сайта магазина
 class User:
     __id = 0  # static field
@@ -37,6 +43,11 @@ class User:
 
 
 class Administrator(User):
+    # Т.к. тут наследдование, то можно было и для User и для Administrator использовать
+    # единый счетчик id. Сейчас у объектов класса Administrator в памяти будет 2 поля с id
+    # также создание пользователей Administrator будут увеличивать счетчик User.__id (пример ниже)
+
+    # Для решения проблем можно использовать единый счетчик от User и удалить строчки с 51 по 63.
     __id = 0  # static field
 
     def __init__(self, name, surname):
@@ -55,6 +66,10 @@ class Administrator(User):
         assert type(order) == Order, "Некорректный тип заказа"
         order.status = 4
 
+# Пример со счетчиками объектов
+test0 = Administrator('Test0','Test0')
+test1 = User('Test1','Test1')
+test2 = Administrator('Test0','Test0')
+test3 = User('Test1','Test1')
 
-
-
+print(test0.id, test1.id, test2.id, test3.id)

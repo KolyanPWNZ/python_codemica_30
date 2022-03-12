@@ -1,6 +1,7 @@
 # UML схема - https://drive.google.com/file/d/1ussGiYgc7ZGx1_4iUDrzSH1lP94k6a1O/view?usp=sharing
 
-
+# Существует ошибка с импортами модулей в проект, т.к. имеются перекрестные ссылки друг на друга
+# Нужно пересмотреть импорты в следующих модулях SiteUsers.py и OrderEnvironment.py
 from SiteUsers import User, Administrator
 from OrderEnvironment import Order, OrderDetails
 from ItemsEnvironment import Item

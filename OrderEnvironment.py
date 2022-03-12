@@ -27,9 +27,13 @@ class Order:
         # установка статуса заказа
         assert type(status) == int, "Статус должен быть целым числом"
         assert status in Order.__status_dict, "Такого статуса нет"
-        self.__status = Order.__status_dict[status]
 
-
+        # Тут лучше хранить число, меньше памяти будет занимать объект
+        # А преобразование в строку делать при выводе статуса, т.е. геттер изменить так:
+        # @property
+        # def status(self):
+        #    return Order.__status_dict[self.__status]
+        self.__status = Order.__status_dict[status] # заменить на self.__status = status
 
     @property
     def id(self):
@@ -82,10 +86,3 @@ class OrderDetails:
         self.__item_list = item_list
 
     # -----------------------------------------------------------
-
-
-
-
-
-
-
