@@ -2,6 +2,9 @@ from ItemsEnvironment import Item
 
 
 class ItemList:
+
+    # Нет нормальных id
+
     __id = 0  # static field
 
     def __init__(self):
