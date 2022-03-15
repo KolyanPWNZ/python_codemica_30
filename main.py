@@ -1,11 +1,17 @@
 # UML схема - https://drive.google.com/file/d/1ussGiYgc7ZGx1_4iUDrzSH1lP94k6a1O/view?usp=sharing
 
+# При запуске программы сразу вылетела ошибка
+#
+# cannot import name 'User' from partially initialized module 'SiteUsers'
+# (most likely due to a circular import)
 
-from SiteUsers import User, Administrator
-from OrderEnvironment import Order, OrderDetails
-from ItemsEnvironment import Item
-from CatalogEnvironment import Catalog, ItemList
 
+from SiteUsers import *
+from OrderEnvironment import *
+from ItemsEnvironment import *
+from CatalogEnvironment import *
+
+# По-моему что не есть хорошая практика импортировать напрямую названиями классов
 
 # создаем товары
 item_1 = Item("Ritmix RWM-220", "Микрофон", 1000)
@@ -53,6 +59,10 @@ item_list_user_1.add_item(item_to_buy_2, item_to_buy_2_catalog)
 # формируем детали заказа
 order_user_1 = Order(user_1)
 order_details_1 = OrderDetails(order_user_1, item_list_user_1)
+
+
+# Для проверки, на подумать:
+# catalog_main.catalog_list[0].item_list.items[0][0] - нормальный человек поймёт?
 
 
 

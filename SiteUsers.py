@@ -1,4 +1,10 @@
-from OrderEnvironment import Order, OrderDetails
+# from OrderEnvironment import *
+
+# Зацикленный импорт в модулях SiteUsers и OrderEnvironment
+# - нужно что-то с этим делать
+#
+# Решил проблему тем что закомментировал импорт в данном модуле и
+# в конце этого файла метод отмены заказа
 
 # классы пользователей сайта магазина
 class User:
@@ -51,9 +57,10 @@ class Administrator(User):
     # ----------------------------------------------------------
 
     # отмена заказа
-    def cancel_order(self, order):
-        assert type(order) == Order, "Некорректный тип заказа"
-        order.status = 4
+    # def cancel_order(self, order):
+    #     assert (type(order) == Order), "Некорректный тип заказа"
+    #     order.status = 4
+
 
 
 

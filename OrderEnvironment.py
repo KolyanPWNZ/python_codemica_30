@@ -1,5 +1,7 @@
 from SiteUsers import User
-from CatalogEnvironment import ItemList
+from CatalogEnvironment import *
+
+# Зацикленный импорт SiteUsers
 
 class Order:
     __id = 0  # static field
@@ -15,6 +17,8 @@ class Order:
         self.user = user
         self.__id = Order.__id
         Order.__id += 1
+        # Почему нельзя словарь из статического поля присвоить именно полю status
+        # - тогда и property задавать не нужно будет, и не нужно будет его валидировать
         self.status = 0 # статус заказа
 
     # -----------------------------------------------------------
@@ -29,7 +33,15 @@ class Order:
         assert status in Order.__status_dict, "Такого статуса нет"
         self.__status = Order.__status_dict[status]
 
-
+    # Насколько правильно применять ключевое слово assert в setter'ах?
+    #
+    # Из 2 минут гуглинга я выяснил что оно применятся для отладки программ (Debug),
+    # не для того чтобы проверять и выкидывать AssertionError при валидации поля
+    #
+    # Для проверки типа под setter'ами думаю можно спокойно применять нормальную
+    # встроенную функцию isinstance()
+    #
+    # Кажется assert впихивать везде не стоит, думаю вам нужно с этим подразобраться
 
     @property
     def id(self):
@@ -41,7 +53,7 @@ class Order:
 
     @user.setter
     def user(self, user):
-        assert type(user) == User, "Объект не относится к классу User!"
+        assert (type(user) == User), "Объект не относится к классу User!"
         self.__user = user
 
 
